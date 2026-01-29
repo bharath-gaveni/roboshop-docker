@@ -84,10 +84,10 @@ networks:
 
 
 volumes:
-- mongodb # dcoker volume create mongodb so docker will create a file in /var/lib/docker/volumes/mongodb this is named volume manged by docker only
-- mysql
-- rabbitmq
-- redis
+  mongodb: # docker volume create mongodb so docker will create a file in /var/lib/docker/volumes/mongodb this is named volume manged by docker only
+  mysql:
+  rabbitmq:
+  redis:
 
 
   
