@@ -4,14 +4,20 @@ services:
   mongodb:
     image: mongodb:v1
     container_name: mongodb
+    volumes:
+    - mongodb:/data/db
 
   redis:
     image: redis:7.0
     container_name: redis
+    volumes:
+    - redis:/data
 
   mysql:
     image: mysql:v1
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
 
   rabbitmq:
     image: rabbitmq:3
@@ -19,6 +25,8 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
+    volumes:
+    - rabbitmq:/var/lib/rabbitmq  
 
   catalogue:
     image: catalogue:v1
@@ -74,6 +82,12 @@ networks:
     name: roboshop
     external: false # true if you manually created a network using docker network command
 
+
+volumes:
+- mongodb # dcoker volume create mongodb so docker will create a file in /var/lib/docker/volumes/mongodb this is named volume manged by docker only
+- mysql
+- rabbitmq
+- redis
 
 
   
