@@ -15,7 +15,7 @@ services:
 
   rabbitmq:
     image: rabbitmq:3
-    cotainer_name: rabbitmq
+    container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
@@ -60,7 +60,7 @@ services:
     container_name: frontend
     ports:
     - "80:80"
-    
+
     depends_on:
     - user
     - cart
